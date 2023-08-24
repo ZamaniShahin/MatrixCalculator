@@ -38,44 +38,55 @@ def subtract_matrices(matrix1, matrix2):
     
     return result
 
-    def multiply_matrices(matrix1, matrix2):
-        result = []
-        for i in range(len(matrix1)):
-            row = []
-            for j in range(len(matrix2[0])):
-                element = 0
-                for k in range(len(matrix2)):
-                    element += matrix1[i][k] * matrix2[k][j]
-                row.append(element)
-            result.append(row)
+def multiply_matrices(matrix1, matrix2):
+    result = []
+    for i in range(len(matrix1)):
+        row = []
+        for j in range(len(matrix2[0])):
+            element = 0
+            for k in range(len(matrix2)):
+                element += matrix1[i][k] * matrix2[k][j]
+            row.append(element)
+        result.append(row)
     
     return result
 
-    def determine_matrix(matrix):
-        if len(matrix) != len(matrix[0]):
-            return None
-        
-        if len(matrix) == 2:
-            return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
-        
-        det = 0
-        for i in range(len(matrix)):
-            sign = (-1) ** i
-            sub_matrix = [row[:i] + row[i+1:] for row in matrix[1:]]
-            sub_det = determine_matrix(sub_matrix)
-            det += sign * matrix[0][i] * sub_det
+def determine_matrix(matrix):
+    if len(matrix) != len(matrix[0]):
+        return None
     
+    if len(matrix) == 2:
+        return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
+    
+    det = 0
+    for i in range(len(matrix)):
+        sign = (-1) ** i
+        sub_matrix = [row[:i] + row[i+1:] for row in matrix[1:]]
+        sub_det = determine_matrix(sub_matrix)
+        det += sign * matrix[0][i] * sub_det
     return det
 
-    def swap_matrices(matrix1, matrix2):
-        return matrix2, matrix1
+def swap_matrices(matrix1, matrix2):
+    return matrix2, matrix1
+def add_matrix_into_another(matrix1, matrix2):
+    result = []
+    for i in range(len(matrix1)):
+        row = []
+        for j in range(len(matrix1[0])):
+            row.append(matrix1[i][j] + matrix2[i][j])
+        result.append(row)
+    
+    return result
 
-    def add_matrix_into_another(matrix1, matrix2):
-        result = []
-        for i in range(len(matrix1)):
-            row = []
-            for j in range(len(matrix1[0])):
-                row.append(matrix1[i][j] + matrix2[i][j])
-            result.append(row)
-        
-        return result
+# Take two matrices from the user
+clear()
+print("Enter the first matrix:" , end='\n')
+matrix1 = take_matrix()
+if(matrix1 == None):
+    print('Your Given Matrix Is Not Compatible With 10*10 Maximum Matrix Length.')
+    quit()
+print("Enter the second matrix:")
+matrix2 = take_matrix()
+if(matrix2 == None):
+    print('Your Given Matrix Is Not Compatible With 10*10 Maximum Matrix Length.')
+    quit()
