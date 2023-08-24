@@ -69,3 +69,13 @@ def subtract_matrices(matrix1, matrix2):
 
     def swap_matrices(matrix1, matrix2):
         return matrix2, matrix1
+
+    def add_matrix_into_another(matrix1, matrix2):
+        result = []
+        for i in range(len(matrix1)):
+            row = []
+            for j in range(len(matrix1[0])):
+                row.append(matrix1[i][j] + matrix2[i][j])
+            result.append(row)
+        
+        return result
