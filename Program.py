@@ -66,3 +66,6 @@ def subtract_matrices(matrix1, matrix2):
             det += sign * matrix[0][i] * sub_det
     
     return det
+
+    def swap_matrices(matrix1, matrix2):
+        return matrix2, matrix1
