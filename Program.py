@@ -80,6 +80,18 @@ def add_matrix_into_another(matrix1, matrix2):
     
     return result
 
+def divide_matrices(matrix1, matrix2):
+    result = []
+    for i in range(len(matrix1)):
+        row = []
+        for j in range(len(matrix1[0])):
+            try:
+                value = matrix1[i][j] / matrix2[i][j]
+            except ZeroDivisionError:
+                value = 0
+            row.append(value)
+        result.append(row)
+    return result
 # Take two matrices from the user
 clear()
 print("Enter the first matrix:" , end='\n')
@@ -97,7 +109,11 @@ if(matrix2 == None):
 
 while(True):
     print('*****************************************',end='\n')
-    flag = int(input('Enter Your Option : \n0.End Operation\n1.Addition.\n2.Substraction.\n3.Multiplicarion.\n4.Determination.\n5.Swap Matrices.\n6.Add A Matrix Into Other one.\n'))
+    flag = int(input('Enter Your Option : \n0.End Operation.\n1.Show Matrix1.\n2.Show Matrix2.\n3.Addition Matrices.'+
+    '\n4.Substraction Matrix1 to Matrix2.\n5.Substraction Matrix2 to Matrix1.\n6.Multiplicarion Matrices.\n7.Divide Matrix1 To Matrix2'+
+    '\n8.Divide Matrix2 To Matrix1\n9.Determination For Matrix1.'+
+    '\n10.DeterMination For Matrix2\n11.Swap Matrices.\n12.Add Matrix1 Into Matrix2.\n'+
+    '\n13.Add Matrix2 Into Matrix1'))
     clear()
     if(flag ==0):
         break
@@ -135,9 +151,15 @@ while(True):
         print("\nMatrix 2:")
         print_matrix(swapped_matrix2)
     elif(flag == 6):
-        # Add Matrix To Other One Tasks
+        # Add Matrix To Other One
         if len(matrix1) == len(matrix2) and len(matrix1[0]) == len(matrix2[0]):
             addition = add_matrix_into_another(matrix1, matrix2)
+            print("\nAdding one matrix into the other:")
+            print_matrix(addition)
+    elif(flag == 7):
+        # Add Matrix To Other One
+        if len(matrix1) == len(matrix2) and len(matrix1[0]) == len(matrix2[0]):
+            addition = add_matrix_into_another(matrix2, matrix1)
             print("\nAdding one matrix into the other:")
             print_matrix(addition)
     else:
