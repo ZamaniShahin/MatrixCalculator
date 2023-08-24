@@ -50,3 +50,19 @@ def subtract_matrices(matrix1, matrix2):
             result.append(row)
     
     return result
+
+    def determine_matrix(matrix):
+        if len(matrix) != len(matrix[0]):
+            return None
+        
+        if len(matrix) == 2:
+            return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
+        
+        det = 0
+        for i in range(len(matrix)):
+            sign = (-1) ** i
+            sub_matrix = [row[:i] + row[i+1:] for row in matrix[1:]]
+            sub_det = determine_matrix(sub_matrix)
+            det += sign * matrix[0][i] * sub_det
+    
+    return det
