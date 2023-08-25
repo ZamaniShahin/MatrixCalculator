@@ -155,7 +155,7 @@ while(True):
             print('Matrix Sizes Are Not Compatible')
     elif(flag == 7):
         #Divide Tasks
-        if (rows1 == rows2 and cols1 == cols2):
+        if len(matrix1) == len(matrix2) and len(matrix1[0]) == len(matrix2[0]):
             result = divide_matrices(matrix1, matrix2)
             print_matrix(result)
         else:
@@ -163,7 +163,7 @@ while(True):
         
     elif(flag == 8):
         #Divide Tasks
-        if (rows1 == rows2 and cols1 == cols2):
+        if len(matrix1) == len(matrix2) and len(matrix1[0]) == len(matrix2[0]):
             result = divide_matrices(matrix2, matrix1)
             print_matrix(result)
         else:
