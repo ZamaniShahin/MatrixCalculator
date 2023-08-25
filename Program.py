@@ -127,18 +127,24 @@ while(True):
             addition = add_matrices(matrix1, matrix2)
             print("\nAddition of the matrices:")
             print_matrix(addition)
+        else:
+            print('Matrices Sizes Are Not Compatible For This Operation!')
     elif(flag == 4):
         #Substraction Tasks
         if len(matrix1) == len(matrix2) and len(matrix1[0]) == len(matrix2[0]):
             subtraction = subtract_matrices(matrix1, matrix2)
             print("\nSubtraction of the matrices:")
             print_matrix(subtraction)
+        else:
+            print('Matrices Sizes Are Not Compatible For This Operation!')
     elif(flag == 5):
         #Substraction Tasks
         if len(matrix1) == len(matrix2) and len(matrix1[0]) == len(matrix2[0]):
             subtraction = subtract_matrices(matrix2, matrix1)
             print("\nSubtraction of the matrices:")
             print_matrix(subtraction)
+        else:
+            print('Matrices Sizes Are Not Compatible For This Operation!')
     elif(flag ==6):
         #Multiplication Tasks
         if len(matrix1[0]) == len(matrix2):
@@ -152,6 +158,8 @@ while(True):
         if (rows1 == rows2 and cols1 == cols2):
             result = divide_matrices(matrix1, matrix2)
             print_matrix(result)
+        else:
+            print('Matrices Sizes Are Not Compatible For This Operation!')
         
     elif(flag == 8):
         #Divide Tasks
@@ -159,25 +167,32 @@ while(True):
             result = divide_matrices(matrix2, matrix1)
             print_matrix(result)
         else:
-            print('Matrix Sizes Are Not Compatible!')
+            print('Matrix Sizes Are Not Compatible For This Operaion!')
     elif(flag == 9):
         #Determine Tasks
         if len(matrix1) == len(matrix1[0]):
             det1 = determine_matrix(matrix1)
             print("Determinant of the first matrix:", det1)
+        else:
+            print('This Is Not An Squared Matrix.')
     elif(flag == 10):
         #Determine Tasks
         if len(matrix1) == len(matrix1[0]):
             det2 = determine_matrix(matrix2)
             print("Determinant of the second matrix:", det2)
+        else:
+            print('This Is Not An Squared Matrix.')
     elif(flag == 11):
         #Swap Tasks
-        swapped_matrix1, swapped_matrix2 = swap_matrices(matrix1, matrix2)
-        print("\nSwapped matrices:")
-        print("Matrix 1:")
-        print_matrix(swapped_matrix1)
-        print("\nMatrix 2:")
-        print_matrix(swapped_matrix2)
+        if len(matrix1) == len(matrix2) and len(matrix1[0]) == len(matrix2[0]):
+            swapped_matrix1, swapped_matrix2 = swap_matrices(matrix1, matrix2)
+            print("\nSwapped matrices:")
+            print("Matrix 1:")
+            print_matrix(swapped_matrix1)
+            print("\nMatrix 2:")
+            print_matrix(swapped_matrix2)
+        else:
+            print('Matrix Sizes Are Not Compatible!')
     elif(flag == 12):
         # Add Matrix To Other One
         if len(matrix1) == len(matrix2) and len(matrix1[0]) == len(matrix2[0]):
@@ -185,6 +200,8 @@ while(True):
             print("\nAdding one matrix into the other:")
             print_matrix(addition)
             print_matrix(matrix2)
+        else:
+            print('Matrix Sizes Are Not Compatible For This Operation!')
     elif(flag == 13):
         # Add Matrix To Other One
         if len(matrix1) == len(matrix2) and len(matrix1[0]) == len(matrix2[0]):
@@ -192,6 +209,7 @@ while(True):
             print("\nAdding one matrix into the other:")
             print_matrix(matrix1)
             print_matrix(addition)
-    
+        else:
+            print('Matrix Sizes Are Not Compatible For This Operation!')
     else:
         print('Please Enter An Option Between 1 to 6 .')
