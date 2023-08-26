@@ -68,7 +68,6 @@ def determine_matrix(matrix):
         det += sign * matrix[0][i] * sub_det
     return det
 
-def swap_matrices(matrix1, matrix2):
     return matrix2, matrix1
 def add_matrix_into_another(matrix1, matrix2):
     result = []
